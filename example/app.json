@@ -5,7 +5,7 @@
     "slug": "jigsaw-playground",
     "privacy": "unlisted",
     "sdkVersion": "36.0.0",
-    "platforms": ["ios", "android"],
+    "platforms": ["ios", "android", "web"],
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -19,7 +19,13 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.draftbit.jigsaw",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "com.draftbit.jigsaw",
+      "versionCode": 1
     },
     "packagerOpts": {
       "assetExts": ["ttf"],
