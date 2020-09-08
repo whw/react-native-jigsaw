@@ -1,7 +1,13 @@
 import * as React from "react";
 import { View, Text, StyleProp, ViewStyle } from "react-native";
 import { withTheme } from "../core/theming";
-import { COMPONENT_TYPES, FIELD_NAME } from "../core/component-types";
+import {
+  COMPONENT_TYPES,
+  FIELD_NAME,
+  FORM_TYPES,
+  PROP_TYPES,
+  GROUPS,
+} from "../core/component-types";
 import IconButton from "./IconButton";
 import Config from "./Config";
 import theme from "../styles/DefaultTheme";
@@ -77,14 +83,25 @@ export const SEED_DATA = [
     tag: "Stepper",
     description: "A component used to control the quantity of something",
     category: COMPONENT_TYPES.field,
-    preview_image_url: "{CLOUDINARY_URL}/Control_Stepper.png",
-    supports_list_render: false,
     props: {
+      value: {
+        group: GROUPS.data,
+        label: "Value",
+        description: "The value of the stepper",
+        editable: true,
+        required: false,
+        formType: FORM_TYPES.number,
+        propType: PROP_TYPES.NUMBER,
+        min: 0,
+        max: 10,
+        step: 1,
+        precision: 0,
+        defaultValue: 0,
+      },
       fieldName: {
         ...FIELD_NAME,
         defaultValue: "stepperValue",
       },
     },
-    layout: {},
   },
 ];
