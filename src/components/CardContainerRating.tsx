@@ -69,14 +69,20 @@ const CardContainerRating: React.FC<Props> = ({
           style={{
             borderRadius: borderRadius.global,
             overflow: "hidden",
+            backgroundColor: colors.background,
+            //background color is needed for bug on android 9 - https://github.com/facebook/react-native/issues/25093
           }}
         >
           <Image
             style={{ aspectRatio }}
             source={typeof image === "string" ? { uri: image } : image}
-            resizeMode="contain"
+            resizeMode="cover"
           />
-          <View style={{ padding: spacing.large }}>
+          <View
+            style={{
+              padding: numColumns === 1 ? spacing.small : spacing.large,
+            }}
+          >
             {title ? (
               <View
                 style={{
@@ -116,7 +122,10 @@ const CardContainerRating: React.FC<Props> = ({
                 marginTop: numColumns === 3 ? spacing.large : spacing.medium,
               }}
             >
-              <StarRating rating={rating} />
+              <StarRating
+                starSize={numColumns === 1 ? 10 : 16}
+                rating={rating}
+              />
               <Text
                 style={[
                   rightDescriptionStyle,

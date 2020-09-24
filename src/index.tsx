@@ -37,7 +37,6 @@ export { default as HeaderLarge } from "./components/HeaderLarge";
 export { default as HeaderMedium } from "./components/HeaderMedium";
 export { default as HeaderOverline } from "./components/HeaderOverline";
 
-// TODO fix Picker web onClick is broken
 export { default as Picker } from "./components/Picker/Picker";
 
 export { default as ProgressBar } from "./components/ProgressBar";
@@ -58,6 +57,7 @@ export { default as RowHeadlineImageIcon } from "./components/RowHeadlineImageIc
 export { default as ScreenContainer } from "./components/ScreenContainer";
 export { default as Slider } from "./components/Slider";
 export { default as Stepper } from "./components/Stepper";
+export { default as StarRating } from "./components/StarRating";
 export { default as Switch } from "./components/Switch";
 
 export { default as TextField } from "./components/TextField";
