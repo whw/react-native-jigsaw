@@ -1,62 +1,65 @@
 import * as React from "react";
-import { Platform, TouchableOpacityProps } from "react-native";
-import CheckboxAndroid from "./CheckboxAndroid";
-import CheckboxIOS from "./CheckboxIOS";
+import { View, TouchableHighlightProps } from "react-native";
+import Icon from "./Icon";
+import Touchable from "./Touchable";
+import { withTheme } from "../core/theming";
+import themeT from "../styles/DefaultTheme";
 
-import {
-  GROUPS,
-  COMPONENT_TYPES,
-  FORM_TYPES,
-  PROP_TYPES,
-  FIELD_NAME,
-} from "../core/component-types";
-
-interface Props extends TouchableOpacityProps {
+interface Props extends TouchableHighlightProps {
   status?: "checked" | "indeterminate" | "unchecked";
   disabled?: boolean;
   onPress?: () => void;
+  theme: typeof themeT;
   color?: string;
 }
 
-export default function Checkbox(props: Props) {
-  return Platform.OS === "ios" ? (
-    <CheckboxIOS {...props} />
-  ) : (
-    <CheckboxAndroid {...props} />
-  );
-}
+const CheckboxIOS: React.FC<Props> = ({
+  status = "unchecked",
+  disabled = false,
+  onPress = () => {},
+  theme,
+  color,
+  style,
+  ...rest
+}) => {
+  console.log("hey");
+  const indeterminate = status === "indeterminate";
+  const checkedColor = color || theme.colors.primary;
+  const icon = indeterminate ? "MaterialIcons/remove" : "MaterialIcons/done";
 
-export const SEED_DATA = {
-  name: "Checkbox",
-  tag: "Checkbox",
-  category: COMPONENT_TYPES.input,
-  layout: null,
-  props: {
-    disabled: {
-      group: GROUPS.data,
-      label: "Disabled",
-      description: "Whether checkbox is disabled",
-      editable: true,
-      required: false,
-      defaultValue: false,
-      formType: FORM_TYPES.boolean,
-      propType: PROP_TYPES.BOOLEAN,
-    },
-    color: {
-      group: GROUPS.basic,
-      label: "Color",
-      description: "Custom color for Checkbox",
-      editable: true,
-      required: false,
-      formType: FORM_TYPES.color,
-      propType: PROP_TYPES.THEME,
-      defaultValue: null,
-    },
-    fieldName: {
-      ...FIELD_NAME,
-      defaultValue: "checkboxValue",
-      valuePropName: "status",
-      handlerPropName: "onPress",
-    },
-  },
+  return (
+    <Touchable
+      {...rest}
+      onPress={onPress}
+      disabled={disabled}
+      accessibilityTraits={disabled ? ["button", "disabled"] : "button"}
+      accessibilityComponentType="button"
+      accessibilityRole="button"
+      accessibilityState={{ disabled }}
+      accessibilityLiveRegion="polite"
+      style={[
+        {
+          borderRadius: 2,
+          width: 25,
+          height: 25,
+          backgroundColor:
+            status === "unchecked" ? theme.colors.surface : checkedColor,
+          borderColor: theme.colors.light,
+          borderWidth: status === "unchecked" ? 2 : 0,
+          opacity: disabled ? theme.disabledOpacity : 1,
+        },
+        style,
+      ]}
+    >
+      <View
+        style={{
+          opacity: indeterminate || disabled ? theme.disabledOpacity : 1,
+        }}
+      >
+        <Icon name={icon} size={24} color={theme.colors.surface} />
+      </View>
+    </Touchable>
+  );
 };
+
+export default withTheme(CheckboxIOS);
