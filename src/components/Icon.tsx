@@ -193,8 +193,5 @@ export const SEED_DATA = {
       required: true,
     },
   },
-  layout: {
-    width: 24,
-    height: 24,
-  },
+  layout: {},
 };
