@@ -12,6 +12,7 @@ import { Provider, DefaultTheme } from "@draftbit/ui";
 import { AppLoading } from "expo";
 import * as Font from "expo-font";
 
+import AudioPlayerExample from "./AudioPlayerExample";
 import AvatarExample from "./AvatarExample";
 import IconExample from "./IconExample";
 import ButtonExample from "./ButtonExample";
@@ -55,6 +56,7 @@ import {
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const ROUTES = {
+  AudioPlayer: AudioPlayerExample,
   Avatar: AvatarExample,
   Icon: IconExample,
   Button: ButtonExample,

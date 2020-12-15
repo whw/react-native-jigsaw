@@ -21,13 +21,14 @@
     "@unimodules/core": "~5.5.0",
     "@unimodules/react-native-adapter": "~5.6.0",
     "expo": "~39.0.2",
+    "expo-av": "~8.6.0",
     "expo-font": "~8.3.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-native": "~0.63.2",
     "react-native-gesture-handler": "~1.7.0",
-    "react-native-safe-area-context": "~3.1.4",
     "react-native-reanimated": "^1.13.1",
+    "react-native-safe-area-context": "~3.1.4",
     "react-native-screens": "~2.10.1",
     "react-native-svg": "^12.1.0",
     "react-native-unimodules": "~0.11.0",
@@ -38,6 +39,6 @@
     "@babel/runtime": "^7.11.2",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-preset-expo": "^8.3.0",
-    "expo-cli": "^3.28.1"
+    "expo-cli": "^4.0.13"
   }
 }
