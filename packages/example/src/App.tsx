@@ -34,6 +34,8 @@ import FieldSearchBarFullExample from "./FieldSearchBarFullExample";
 
 import HeaderExample from "./HeaderExample";
 
+import LayoutExample from "./LayoutExample";
+
 import PickerExample from "./PickerExample";
 
 import ProgressExample from "./ProgressExample";
@@ -55,6 +57,7 @@ import {
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
 const ROUTES = {
+  Layout: LayoutExample,
   Avatar: AvatarExample,
   Icon: IconExample,
   Button: ButtonExample,
@@ -110,8 +113,8 @@ function Example({ title, children }) {
 }
 
 let customFonts = {
-  "FiraCode": require("./assets/fonts/FiraCode-Bold.otf"),
-  "Testing": require("./assets/fonts/Sriracha-Regular.ttf"),
+  FiraCode: require("./assets/fonts/FiraCode-Bold.otf"),
+  Testing: require("./assets/fonts/Sriracha-Regular.ttf"),
   "Inter-SemiBoldItalic":
     "https://rsms.me/inter/font-files/Inter-SemiBoldItalic.otf?v=3.12",
 };
@@ -137,7 +140,10 @@ export default class App extends React.Component {
       return (
         <Provider theme={DefaultTheme}>
           <SafeAreaProvider>
-            <SafeAreaView style={{ flex: 1 }} edges={['right', 'bottom', 'left']}>
+            <SafeAreaView
+              style={{ flex: 1 }}
+              edges={["right", "bottom", "left"]}
+            >
               <NavigationContainer>
                 <Drawer.Navigator
                   drawerContentOptions={{

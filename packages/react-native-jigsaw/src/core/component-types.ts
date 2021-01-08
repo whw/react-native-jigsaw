@@ -13,6 +13,7 @@ export const GROUPS = {
   accessibility: "accessibility",
   basic: "basic",
   advanced: "advanced",
+  layout: "layout",
   data: "data",
   uncategorized: "uncategorized",
 };
