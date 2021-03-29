@@ -50,7 +50,7 @@ const IconButton: React.FC<Props> = ({
   const SelectedIcon = IconOverride || Icon;
 
   if (loading || disabled) {
-    containerStyles.push({ opacity: theme.disabledOpacity });
+    containerStyles.push({ opacity: 0.5 });
   }
 
   if (style) {

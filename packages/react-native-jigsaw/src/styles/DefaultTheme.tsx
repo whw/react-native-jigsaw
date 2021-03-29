@@ -1,7 +1,6 @@
 import { systemWeights } from "react-native-typography";
 
 export default {
-  disabledOpacity: 0.5,
   borderRadius: {
     global: 6,
     button: 24,
@@ -11,6 +10,7 @@ export default {
     secondary: "rgba(59, 201, 234, 1)",
     surface: "rgba(255, 255, 255, 1)",
     background: "rgba(251, 252, 253, 1)",
+    disabled: "rgba(0, 0, 0, 0.5)",
     error: "rgba(255, 69, 100, 1)",
     divider: "rgba(234, 237, 242, 1)",
     strong: "rgba(18, 20, 44, 1)",

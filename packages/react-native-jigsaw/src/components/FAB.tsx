@@ -8,7 +8,6 @@ import {
   ViewStyle,
   TextStyle,
 } from "react-native";
-import color from "color";
 import Config from "./Config";
 import Icon from "./Icon";
 import Text from "./Text";
@@ -85,7 +84,7 @@ const FAB: React.FC<Props> = ({
   elevation = 0,
   style,
   IconOverride = null,
-  theme: { colors, disabledOpacity, borderRadius, typography },
+  theme: { colors, borderRadius, typography },
   ...rest
 }) => {
   let backgroundColor, borderColor, textColor, borderWidth;
@@ -97,7 +96,7 @@ const FAB: React.FC<Props> = ({
     backgroundColor = buttonColor;
 
     if (disabled) {
-      textColor = color(colors.surface).alpha(disabledOpacity).rgb().string();
+      textColor = colors.disabled;
     } else {
       textColor = colors.surface;
     }
@@ -105,7 +104,7 @@ const FAB: React.FC<Props> = ({
     backgroundColor = "transparent";
 
     if (disabled) {
-      textColor = color(buttonColor).alpha(disabledOpacity).rgb().string();
+      textColor = colors.disabled;
     } else {
       textColor = buttonColor;
     }
@@ -113,7 +112,7 @@ const FAB: React.FC<Props> = ({
 
   if (type === "outline") {
     if (disabled) {
-      borderColor = color(buttonColor).alpha(disabledOpacity).rgb().string();
+      borderColor = colors.disabled;
     } else {
       borderColor = buttonColor;
     }

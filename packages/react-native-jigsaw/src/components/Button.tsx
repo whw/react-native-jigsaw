@@ -82,7 +82,7 @@ const Button: React.FC<Props> = ({
   onPress,
   elevation = 0,
   style,
-  theme: { colors, disabledOpacity, borderRadius, typography },
+  theme: { colors, borderRadius, typography },
   ...rest
 }) => {
   let backgroundColor, borderColor, textColor, borderWidth;
@@ -92,7 +92,7 @@ const Button: React.FC<Props> = ({
     backgroundColor = buttonColor;
 
     if (disabled) {
-      textColor = color(colors.surface).alpha(disabledOpacity).rgb().string();
+      textColor = colors.disabled;
     } else {
       textColor = labelColor || colors.surface;
     }
@@ -100,7 +100,7 @@ const Button: React.FC<Props> = ({
     backgroundColor = "transparent";
 
     if (disabled) {
-      textColor = color(buttonColor).alpha(disabledOpacity).rgb().string();
+      textColor = colors.disabled;
     } else {
       textColor = labelColor || buttonColor;
     }
@@ -108,7 +108,7 @@ const Button: React.FC<Props> = ({
 
   if (type === "outline") {
     if (disabled) {
-      borderColor = color(buttonColor).alpha(disabledOpacity).rgb().string();
+      borderColor = colors.disabled;
     } else {
       borderColor = buttonColor;
     }

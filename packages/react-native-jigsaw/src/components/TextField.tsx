@@ -230,7 +230,7 @@ class TextField extends React.Component<Props> {
       assistiveText,
       multiline = false,
       style,
-      theme: { colors, typography, borderRadius, disabledOpacity },
+      theme: { colors, typography, borderRadius },
       render = (props) => <NativeTextInput {...props} />,
       ...rest
     } = this.props;
@@ -303,7 +303,7 @@ class TextField extends React.Component<Props> {
         borderWidth: 1,
         paddingTop: this.state.labeled ? 16 * 1.5 : 16,
         paddingBottom: this.state.labeled ? 16 * 0.5 : 16,
-        opacity: disabled ? disabledOpacity : 1,
+        opacity: disabled ? 0.5 : 1,
         backgroundColor,
       };
 
