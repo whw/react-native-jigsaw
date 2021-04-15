@@ -45,3 +45,12 @@ const Surface: React.FC<Props> = ({ style, theme, children, ...rest }) => {
 };
 
 export default withTheme(Surface);
+
+export const SEED_DATA = {
+  name: "Surface",
+  tag: "Surface",
+  category: COMPONENT_TYPES.container,
+  props: {
+    elevation: createElevationType(3),
+  },
+};

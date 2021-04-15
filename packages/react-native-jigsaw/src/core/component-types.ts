@@ -68,20 +68,15 @@ export const COMPONENT_TYPES = {
   codeComponent: "codeComponent",
 };
 
-const ELEVATION_TYPE = {
+export const createElevationType = (defaultValue) => ({
   label: "Elevation",
   description: "Elevation of the component. A number 0-3.",
   formType: FORM_TYPES.flatArray,
   propType: PROP_TYPES.NUMBER,
-  options: [0, 1, 2, 3],
-  defaultValue: 0,
+  options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   editable: true,
   required: false,
   group: GROUPS.basic,
-};
-
-export const createElevationType = (defaultValue) => ({
-  ...ELEVATION_TYPE,
   defaultValue,
 });
 
