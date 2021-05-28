@@ -5,6 +5,7 @@
     "name": "@draftbit/ui-example",
     "slug": "draftbit-ui-example",
     "description": "Example app for @draftbit/ui",
+    "orientation": "portrait",
     "privacy": "public",
     "version": "1.0.0",
     "platforms": ["ios", "android", "web"],

@@ -69,10 +69,10 @@ export const COMPONENT_TYPES = {
 
 const ELEVATION_TYPE = {
   label: "Elevation",
-  description: "Elevation of the component. A number 0-3.",
+  description: "Elevation of the component. A number 0-10",
   formType: FORM_TYPES.flatArray,
   propType: PROP_TYPES.NUMBER,
-  options: [0, 1, 2, 3],
+  options: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   defaultValue: 0,
   editable: true,
   required: false,

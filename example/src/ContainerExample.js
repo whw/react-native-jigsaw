@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import Section, { Container as ExampleContainer } from "./Section";
 import { Container, withTheme } from "@draftbit/ui";
 
@@ -9,20 +9,41 @@ const IMAGE =
 function ContainerExample({ theme }) {
   return (
     <ExampleContainer style={{ backgroundColor: theme.colors.background }}>
-      <Section title="Container with no theme gutter padding)">
-        <Container style={{ paddingVertical: 16 }}>
-          <Text>Container without theme gutter padding</Text>
+      <Section title="Basic styling">
+        <Container
+          backgroundImage={IMAGE}
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            margin: 20,
+            padding: 20,
+          }}
+        >
+          <Text>Hello</Text>
+          <Text>World</Text>
         </Container>
-      </Section>
-
-      <Section title="Container with theme gutter padding)">
-        <Container useThemeGutterPadding style={{ paddingVertical: 16 }}>
-          <Text>Container with theme gutter padding</Text>
+        <Container
+          backgroundColor="pink"
+          style={{
+            flexDirection: "row",
+            justifyContent: "space-between",
+            alignItems: "center",
+            margin: 20,
+            padding: 20,
+            height: 200,
+          }}
+        >
+          <Text>Hello</Text>
+          <Text>World</Text>
         </Container>
       </Section>
 
       <Section title="Container with background color">
-        <Container backgroundColor="#ff0000" style={{ paddingVertical: 16 }}>
+        <Container
+          backgroundColor="#ff0000"
+          style={{ height: 100, paddingVertical: 16 }}
+        >
           <Text>Container with background color</Text>
         </Container>
       </Section>

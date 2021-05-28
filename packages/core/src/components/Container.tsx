@@ -11,10 +11,7 @@ import { withTheme } from "../theming";
 
 import Elevation from "./Elevation";
 import {
-  GROUPS,
   COMPONENT_TYPES,
-  FORM_TYPES,
-  PROP_TYPES,
   createElevationType,
   createImageProp,
   createResizeModeProp,
@@ -24,7 +21,6 @@ import { ResizeModeType } from "./ResizeMode";
 
 type Props = {
   theme: Theme;
-  useThemeGutterPadding: boolean;
   borderColor: string;
   borderWidth: number;
   backgroundColor: string;
@@ -36,13 +32,12 @@ type Props = {
 };
 
 const Container: React.FC<Props> = ({
-  useThemeGutterPadding,
   borderColor,
   borderWidth,
   backgroundColor,
   backgroundImage,
   backgroundImageResizeMode,
-  elevation,
+  elevation = 4,
   style,
   children,
   theme, // eslint-disable-line @typescript-eslint/no-unused-vars
@@ -58,6 +53,14 @@ const Container: React.FC<Props> = ({
     alignContent,
     justifyContent,
     alignItems,
+    padding,
+    paddingLeft,
+    paddingRight,
+    paddingTop,
+    paddingBottom,
+    borderRadius,
+    height,
+    width,
     ...styleProp
   } = StyleSheet.flatten(style) || {};
 
@@ -65,12 +68,14 @@ const Container: React.FC<Props> = ({
     backgroundColor,
     borderColor,
     borderWidth,
-    width: "100%",
+    borderRadius,
+    height,
+    width,
+    position: "relative",
     ...styleProp,
   };
 
   const innerStyle: StyleProp<ViewStyle> = {
-    paddingHorizontal: useThemeGutterPadding ? 16 : 0,
     flex,
     flexGrow,
     flexWrap,
@@ -80,6 +85,11 @@ const Container: React.FC<Props> = ({
     alignContent,
     justifyContent,
     alignItems,
+    padding,
+    paddingLeft,
+    paddingRight,
+    paddingTop,
+    paddingBottom,
   };
 
   const Wrap = elevation ? Elevation : View;
@@ -89,7 +99,7 @@ const Container: React.FC<Props> = ({
   }
 
   return (
-    <Wrap style={[containerStyle, style]} {...rest}>
+    <Wrap style={containerStyle} {...rest}>
       {backgroundImage ? (
         <ImageBackground
           source={
@@ -98,11 +108,9 @@ const Container: React.FC<Props> = ({
               : backgroundImage
           }
           resizeMode={backgroundImageResizeMode}
-          style={{
-            flex: 1,
-          }}
+          style={{ flex: 1 }}
         >
-          <View style={innerStyle}>{children}</View>
+          <View style={[innerStyle]}>{children}</View>
         </ImageBackground>
       ) : (
         <View style={innerStyle}>{children}</View>
@@ -122,17 +130,6 @@ export const SEED_DATA = {
     height: 250,
   },
   props: {
-    useThemeGutterPadding: {
-      group: GROUPS.basic,
-      label: "Use gutter padding",
-      description:
-        "When true, uses the theme gutter spacing as the container's horizontal padding",
-      formType: FORM_TYPES.boolean,
-      propType: PROP_TYPES.BOOLEAN,
-      defaultValue: false,
-      editable: false,
-      required: true,
-    },
     backgroundImage: createImageProp({
       label: "Background Image",
       description: "Apply a custom background image",
