@@ -32,6 +32,7 @@ export {
   ActionSheetCancel,
 } from "./components/ActionSheet";
 export { Swiper, SwiperItem } from "./components/Swiper";
+export { BottomSheet } from "./components/BottomSheet";
 
 export {
   Center,
