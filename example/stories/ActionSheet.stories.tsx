@@ -13,10 +13,6 @@ export const Basic: ComponentStory<typeof ActionSheet> = (args) => {
 
   const toggleIsVisible = () => setIsVisible(!isVisible);
 
-  // TODO need to fix Portal re-render Hook issue ... see:
-  // packages/core/src/components/ActionSheet/ActionSheet.tsx
-  // packages/core/src/components/Portal/Portal.tsx
-
   return (
     <View
       style={{
@@ -51,7 +47,7 @@ export const Basic: ComponentStory<typeof ActionSheet> = (args) => {
 
 Basic.args = {
   visible: false,
-  //onClose: () => console.log('closed')
+  //onClose: () => console.log("closed"),
 };
 
 Basic.argTypes = {

@@ -4,13 +4,17 @@ import Portal from "../Portal/Portal";
 import Touchable from "../Touchable";
 import ActionSheetCancel from "./ActionSheetCancel";
 
-interface Props {
+export interface ActionSheetProps {
   visible: boolean;
   onClose: () => void;
   children: React.ReactNode;
 }
 
-const ActionSheet = ({ visible = false, onClose, children }: Props) => {
+const ActionSheet = ({
+  visible = false,
+  onClose,
+  children,
+}: ActionSheetProps) => {
   return visible ? (
     <Portal>
       <Touchable style={styles.wrapper} onPress={onClose}>
